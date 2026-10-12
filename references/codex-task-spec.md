@@ -1,6 +1,6 @@
 # Codex TASK specification — exhaustive by design
 
-**The Codex agent enters cold, with no prior Claude conversation context. Every TASK is a complete work order.** Read the task template and fail preflight if any required slot is blank (N/A + reason is okay). Copy exact approved values from contracts; do not rely on unspecified implicit taste.
+**The Codex agent enters cold, with no prior conversation context. Every TASK is a complete work order.** Read the task template and fail preflight if any required slot is blank (N/A + reason is okay). Copy exact approved values from contracts; do not rely on unspecified implicit taste.
 
 ## Mandatory fields (19)
 1. `TASK-ID`, priority, phase, owner, status and contract `BASE_SHA`.

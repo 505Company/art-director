@@ -13,7 +13,7 @@ Never pretend a repository reveals target audience or brand positioning when tho
 - Existing UI components, design tokens, icons, fonts/licenses, image/brand assets, content and localization.
 - API endpoints/types, state management, auth, external integrations. Identify sensitive/regulated boundaries.
 - Tests, eslint/typecheck/build/start commands, CI expectations and supported browsers.
-- Screenshots/mockups/prototypes/Figma: what files/links are truly accessible. Do not claim analysis of inaccessible materials.
+- Screenshots, mockups, prototypes and design files: what inputs are truly accessible. Do not claim analysis of inaccessible materials.
 - Existing `CLAUDE.md`, `AGENTS.md`, project rules. Respect non-overwrite instruction.
 - Deployment, performance and accessibility requirements; browser availability for QA.
 

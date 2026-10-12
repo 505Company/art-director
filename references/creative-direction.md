@@ -1,4 +1,4 @@
-# Creative direction — Opus acts as an exacting design director
+# Creative direction
 
 ## 1. Define the design problem
 - Product, buyer/user, job to be done, stage of user journey, primary action, content density.

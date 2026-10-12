@@ -191,7 +191,7 @@ class PackageTests(unittest.TestCase):
         self.assertIn("name: art-director", fm)
         self.assertIn("description:", fm)
         self.assertIn("Codex CLI", fm)
-        for path in ["README.md", "ATTRIBUTION.md", "templates/CLAUDE.md", "templates/AGENTS.md", "references/codex-cli.md", "references/visual-qa.md", "references/image-production.md", "templates/image-task.md", "scripts/dispatch_codex.py", "scripts/install.py"]:
+        for path in ["README.md", "README.en.md", "templates/CLAUDE.md", "templates/AGENTS.md", "references/codex-cli.md", "references/visual-qa.md", "references/image-production.md", "templates/image-task.md", "scripts/dispatch_codex.py", "scripts/install.py"]:
             self.assertTrue((ROOT / path).exists(), path)
 
 if __name__ == "__main__":

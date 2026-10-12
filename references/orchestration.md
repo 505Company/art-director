@@ -10,7 +10,7 @@ Use concurrency only when total wall-clock savings outweigh context, integration
 - git worktree/branch isolation and exclusive writable files;
 - no unresolved shared design/architecture decisions;
 - tool/permission limits supported; no production secrets/DB side effects.
-If a task fails gate, Claude owns the decision and should clarify/specify/sequence before delegating; a small implementation may be sequential Codex.
+If a task fails the gate, the art director resolves its specification or sequencing before delegating; a small implementation may use a single Codex run.
 
 ## DAG construction
 List vertices `TASK-ID`; edge `A -> B` means B REQUIRES A **integrated** (not merely Codex-completed). A shared contract commit is root `BASE_SHA`. Mark integration tasks as explicit vertices. Group independent tasks into batches where:
@@ -64,7 +64,7 @@ Create a matrix of `owner -> paths`. Shared root files are writable ONLY by the 
 - `BLOCKED`: missing consent, contract or tooling; no misleading completion.
 
 ## Delegation communication
-The task content must be self-contained: Codex agents do not inherit Claude's full chat and may not see all assets. Include exact repo SHA, actual screenshot location, contract summary or copies of relevant values, writable paths, API signatures, AC checkboxes and report format in the task itself.
+The task content must be self-contained: Codex agents do not inherit the directing assistant's conversation and may not see all assets. Include exact repo SHA, actual screenshot location, contract summary or copies of relevant values, writable paths, API signatures, AC checkboxes and report format in the task itself.
 
 ## Run the dispatcher
 From an existing clean Git project, prepare a JSON manifest with `base_sha` and a `tasks` array. Each task needs an `id`, `spec` path, nonempty `allow` list and empty `depends_on` list. Use actual task files and exclusive writable paths; include only tasks whose prerequisites are already integrated.
@@ -88,9 +88,9 @@ Example: unlicensed critical asset, unapproved data egress, destructive migratio
 
 ## Single-instance resources and context budget
 - Photoshop (one app, one active document) and the user's browser (computer use) are **exclusive**: one agent each at a
-  time; queue tasks that need them, run Pillow/Figma/file tasks in parallel.
-- Prefer many small runs over one huge run: one variant / character / PSD per run, ≤ 10–15 generations. State lives in
+  time; queue tasks that need them and run tasks with independent tool state in parallel.
+- Focus each run on one deliverable and set its generation and usage limits in the task brief. State lives in
   files (selection files, coordinates/boxes, task graph), so each new agent gets a short spec + paths, not history.
 - When a run is stopped and restarted, tell the new agent what the old run may have left (open documents, half-written
-  files, Figma nodes) and to reuse or clean only its own artefacts.
+  files, generated assets) and to reuse or clean only its own artefacts.
 - Never dispatch a run that writes to a document the user is editing; save user-edited files as new versions.

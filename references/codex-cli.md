@@ -1,11 +1,6 @@
 # Codex CLI dispatch contract
 
-Authoritative references:
-- https://learn.chatgpt.com/docs/cli/reference (Codex CLI `exec` reference)
-- https://github.com/openai/codex/blob/main/codex-rs/exec/src/cli.rs (CLI argument definitions)
-- https://code.claude.com/docs/en/skills (Claude skills format and paths)
-
-Verify commands against the installed CLI and official documentation before dispatch. Use the documented `codex exec` entry point.
+Use the installed CLI's version and help output to verify available commands and arguments before dispatch. The execution entry point is `codex exec`; adapt its flags to the active environment.
 
 ## Preflight
 
@@ -49,7 +44,7 @@ For CI optional `--json` streams JSONL events, but do not parse assumed undocume
 ## Fallback when Codex CLI unavailable
 1. Mark tasks `PLANNED/BLOCKED`; list missing binary/auth/permissions precisely.
 2. Output complete individual TASK.md files, DAG, accepted design contract, and the exact safe manual invocation.
-3. **Do not say Codex was run or automatically replace Codex with Claude coding.** Only switch executor when user explicitly requests it.
+3. Report execution only when Codex actually ran. Switch implementation executors only when the user explicitly requests it.
 
 ## Shell portability
 Samples are POSIX shell; use the included Python dispatcher for cross-platform task launching. Windows Git/worktrees, executable name, subprocess environment and file paths must be verified on that machine. PowerShell callers may need to adjust redirection and path syntax; do not claim samples are universal.

@@ -18,7 +18,7 @@ It works with websites, app interfaces, and images.
 
 Running tasks through agents requires an installed and configured Codex CLI. Image generators, Photoshop, and other tools are connected separately when needed for a task.
 
-The repository contains instructions, blank templates, helper scripts, and tests. It includes no completed project examples or client images.
+The repository contains instructions, blank templates, helper scripts, and tests.
 
 ## Installation
 
@@ -56,4 +56,4 @@ python3 -m unittest discover -s tests -v
 
 The tests use a local fake Codex executor and do not call any models.
 
-See [ATTRIBUTION.md](ATTRIBUTION.md) for sources and acknowledgments.
+Full instructions are in [SKILL.md](SKILL.md).

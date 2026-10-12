@@ -1,18 +1,16 @@
 # TASK-GRAPH — [Project], contract BASE_SHA=[SHA]
 
 ## DAG (edge A -> B means A must already be integrated before B starts)
-```mermaid
-flowchart TD
-  C[Approved contracts] --> A[TASK-101]
-  C --> B[TASK-104]
-  A --> I[Integrator]
-  B --> I
-  I --> Q[TASK-103 QA]
-```
+
+- Approved contract baseline:
+- Actual task IDs and dependency edges:
+- Sequential integration tasks:
+- Final verification tasks:
+
+Build the graph from these verified dependencies. Include only the current project's tasks.
 
 | Task ID | Depends on INTEGRATED | Exclusive writable paths | Estimated effort/risk | Planned wave |
 |---|---|---|---|---|
-| TASK-101 | BASE_SHA | ... | ... | 1 |
 
 ## Concurrency justification
 - Tasks in same wave are independent because:
