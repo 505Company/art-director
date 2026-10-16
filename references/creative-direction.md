@@ -1,4 +1,4 @@
-# Creative direction
+# Creative direction — the orchestrator acts as design director
 
 ## 1. Define the design problem
 - Product, buyer/user, job to be done, stage of user journey, primary action, content density.

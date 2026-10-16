@@ -1,7 +1,7 @@
 # Integrated visual QA and exact correction protocol
 
 ## Only review what actually rendered
-Preferred browser: Playwright (existing project setup or optional Playwright MCP), alternatives as available. If browser inaccessible, mark `NOT VISUALLY VERIFIED`; read code and tests as weaker evidence, never pretend to see final pixels. Review the **integrated running app**, not only isolated component snapshots.
+Use browser tools available in the project's configured environment. If the browser is inaccessible, mark `NOT VISUALLY VERIFIED`; read code and tests as weaker evidence, never pretend to see final pixels. Review the **integrated running app**, not only isolated component snapshots.
 
 ## Minimum target matrix (adapt contract)
 | Profile | Sample viewport | Expected inspection |
@@ -46,3 +46,17 @@ For every element that was inserted, replaced or edited: compare it with its nat
 light, colour, tone, texture and geometry/grounding; inspect at 100 % and at full-frame scale; record "looks pasted in?" per
 element. Downscaled contact sheets and the agent's self-report are not evidence. Image-specific checklist:
 `references/image-production.md` §5–6.
+
+## Image-production acceptance
+Compare the composition, identities, geometry, proportions, text and light with the approved sources. Verify alignment, contact/cast shadows, reflections and protected source regions after compositing. Inspect rebuilt surfaces at 100% for streaks, seams and tonal blocks. Variants must make only their specified changes. Record source versions, crops and measurements; use `references/image-production.md` §2 and §7 for the build method and corrections.
+
+## Design-tool delivery of images
+When placing image candidates or final artwork in a design tool, show **every image COMPLETE**: frame aspect ratio equals image aspect ratio, with no FILL cropping or distortion. This delivery-board rule is separate from a website's explicitly approved image crop. Verify the exported result against source dimensions and all four edges.
+- Follow the project's approved layer naming convention; record it in PROJECT-SETUP.
+- Only add nodes in the assigned scope; never move or rename other people's nodes.
+- Capture evidence of the complete image and the new node IDs/names; quota exhaustion leaves exact unchecked exports marked unverified.
+
+## Client-edited files and handoff
+If the client changes a working file, including layer visibility, stop agents touching it. Save that state as a **new version**, treat it as the approved base and update queued tasks before resuming; preserve earlier files and the client's visibility choices.
+
+Verify that every file target exists and use the host's supported link format. For layered editor files or other unsupported previews, reveal the file in the file manager after the visible-effect warning; do not present a failed preview as a missing deliverable.

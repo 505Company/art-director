@@ -26,8 +26,8 @@ class ManifestTests(unittest.TestCase):
         self.project = self.root / "site"
         self.project.mkdir()
         run("git", "init", "-q", str(self.project))
-        run("git", "config", "user.email", "test@example.local", cwd=self.project)
-        run("git", "config", "user.name", "Test Runner", cwd=self.project)
+        run("git", "config", "user.email", "local-test", cwd=self.project)
+        run("git", "config", "user.name", "Test runner", cwd=self.project)
         task_dir = self.project / "docs" / "art-direction" / "tasks"
         task_dir.mkdir(parents=True)
         (task_dir / "TASK-101.md").write_text(
@@ -191,7 +191,7 @@ class PackageTests(unittest.TestCase):
         self.assertIn("name: art-director", fm)
         self.assertIn("description:", fm)
         self.assertIn("Codex CLI", fm)
-        for path in ["README.md", "README.en.md", "templates/CLAUDE.md", "templates/AGENTS.md", "references/codex-cli.md", "references/visual-qa.md", "references/image-production.md", "templates/image-task.md", "scripts/dispatch_codex.py", "scripts/install.py"]:
+        for path in ["README.md", "README.en.md", "templates/CLAUDE.md", "templates/AGENTS.md", "references/codex-cli.md", "references/visual-qa.md", "references/image-production.md", "templates/image-task.md", "scripts/dispatch_codex.py", "scripts/new_project.py", "scripts/install.py"]:
             self.assertTrue((ROOT / path).exists(), path)
 
 if __name__ == "__main__":

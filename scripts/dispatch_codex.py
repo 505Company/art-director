@@ -200,7 +200,7 @@ def main(argv: list[str] | None = None) -> int:
     p = argparse.ArgumentParser(description=__doc__)
     p.add_argument("--project", required=True, type=Path, help="existing clean Git project root")
     p.add_argument("--manifest", required=True, type=Path, help="one independent batch manifest JSON")
-    p.add_argument("--workers", type=int, default=3, help="max parallel workers (default: 3; max: 6)")
+    p.add_argument("--workers", type=int, default=10, help="max parallel workers (default: 10; max: 10)")
     p.add_argument("--timeout-seconds", type=int, default=1800)
     p.add_argument("--execute", action="store_true", help="otherwise PLAN ONLY, zero side effects")
     p.add_argument("--approve-sharing-code", action="store_true", help="acknowledge external code/context transfer")
@@ -208,8 +208,8 @@ def main(argv: list[str] | None = None) -> int:
     try:
         project = args.project.expanduser().resolve(strict=True)
         manifest = args.manifest.expanduser().resolve(strict=True)
-        if args.workers < 1 or args.workers > 6 or args.timeout_seconds < 30:
-            raise ValueError("workers must be 1..6; timeout >=30 seconds")
+        if args.workers < 1 or args.workers > 10 or args.timeout_seconds < 30:
+            raise ValueError("workers must be 1..10; timeout >=30 seconds")
         root = Path(git(project, "rev-parse", "--show-toplevel")).resolve()
         if root != project:
             raise ValueError(f"--project must be Git root, not subfolder: {root}")

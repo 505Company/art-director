@@ -1,70 +1,73 @@
 # Image production: generation and compositing
 
-Read this when the deliverable is an image rather than a UI. Define the subject, intended use, dimensions, approved inputs and acceptance criteria from the current request. Choose tools and methods for that task.
+Read this for image deliverables. Use the generators, editor, formats and budgets recorded in PROJECT-SETUP; verify their capabilities for the requested operation.
 
 ## 1. Roles and selection
+- The art director defines the composition, variants, inputs and acceptance criteria. Agents produce candidates, measurements, composites, exports and comparison sheets.
+- After each generation stage, the art director views candidates at useful inspection sizes and records selected IDs, reasons and rejected defects in `SELECTION.md` before dependent work starts.
+- User selections take precedence. Agents implement the recorded selection; their own quality verdict does not replace visual review.
 
-- The art director owns the concept, composition, prompts and final selection. Agents produce candidates, perform edits and prepare comparison sheets.
-- After each generation stage, inspect the candidates side by side at full size and record the chosen files in `SELECTION.md` before dependent work begins.
-- Record the user's approved choices in the brief and selection file. Keep agent reports separate from independent visual review.
-
-## 2. Choose a build method
-
-| Method | Suitable when | Inspect carefully |
+## 2. Choose the build method
+| Method | Use when | Main risk |
 |---|---|---|
-| Whole-scene generation | Subjects need shared lighting and natural interaction | Identity, text, dimensions and unwanted changes |
-| Hybrid generation and compositing | Some elements need exact geometry or approved source assets | Joins, perspective, scale and lighting |
-| Assembly from separate elements | Precise placement and reuse matter | Grounding, masks, shadows and consistency |
+| Whole-scene generation | Shared lighting, interaction and natural composition matter most | Identity, text and geometry can drift |
+| Hybrid production | Generated content must preserve approved products or source pixels | Boundaries and lighting between sources |
+| Assembly from parts | Precise control and reusable elements are needed | Inconsistent scale, perspective and integration |
 
-Choose the method from the required fidelity, available assets and tool capabilities. Describe which layers are generated and which use approved sources. Keep lighting, camera and composition consistent across separately produced elements.
+For hybrid work, identify which source regions must remain exact before generating edits. Approve the base composition first; create isolated edit stages only where needed. Preserve source pixels outside the agreed edit area, and check perspective, occlusion and scale before compositing. Choose foreground/background boundaries from the actual composition rather than a fixed scene recipe.
+
+## 2.1. Choose the generator by edit capability
+Test the requested edit on a small sample. A tool that generates new scenes may not preserve identity or change viewpoint reliably. Record tested capabilities and limits for scene creation, removal, insertion, viewpoint changes and identity edits in PROJECT-SETUP. Review geometry and lighting again after a viewpoint change.
+
+## 2.5. Creative pilot gate
+When a pilot or speculative visual is requested:
+- Develop the idea from the approved brief and supported product benefits. Use references for their stated purpose and respect asset rights.
+- Verify explicit and implied claims against approved evidence; retain source, date and limitations in project records.
+- Compare distinctive geometry, proportions, orientation and text with the approved source.
+- Label speculative concepts. Generated imagery does not establish real fit, usage or product performance; use appropriate approved evidence for those claims.
+- Review an agreed sample before mass production. Compare generators only when requested, within the approved budget, using actual candidates and task-specific criteria.
 
 ## 3. Generation rules
+- Record the exact tool/model/mode, dimensions, aspect ratio, variant count and generation budget. Stop if the approved mode or spending allowance is unavailable.
+- The user handles sign-in and account changes. Use the approved browser/profile and tool access; see `references/tooling-limits.md` for profile ownership, prompt read-back and downloads.
+- Express layout and scale in measurable terms derived from the brief. Verify generated results rather than treating prompt values as achieved measurements.
+- Keep runs within the recorded budget. Inspect for unintended edits, altered text, extra elements, identity drift, geometry errors and lighting changes before continuing.
 
-- Use the user's authorized tool, model, settings and budget. Confirm the active settings before starting; pause if they differ from the approved plan.
-- Specify composition, proportions, lighting, framing, aspect ratio and required output size. Measure the actual output before compositing.
-- Keep each run bounded by one clear deliverable and a stated generation limit. Pass selections and work state through files.
-- Inspect generated geometry, text, object count, identity, pose, colors and background continuity. Correct observed defects with a precise edit brief.
-- Use only inputs approved for the task. Preserve unrelated details when editing an existing image.
+## 4. Identity and variants
+- Use only approved identity references. Choose reference views for the required angle and detail; record their actual paths and rights.
+- Preserve an approved subject's identity, proportions, wardrobe, expression and lighting unless the brief changes them.
+- Replace a region only when the observed defect warrants it. Record the crop, mask and intended change; fit boundaries, feathering and resolution to the actual image.
+- Define each variant's changes explicitly. Keep all other approved properties stable and inspect variants together before selection.
 
-## 4. Character identity
+## 5. Integration rule for every edited element
+Compare each element with its native neighbours and immediate surroundings:
+1. **Light:** direction, falloff, highlights, shadow structure and reflected light.
+2. **Colour:** white balance, saturation and lit/shadow values; derive targets from the approved scene.
+3. **Tone:** brightness and local contrast without unintended pale, dark or tinted patches.
+4. **Texture:** sharpness, grain and depth of field consistent with distance and source resolution.
+5. **Geometry:** perspective, scale, occlusion, contact/cast shadows and reflections.
 
-- When consistent characters are required, define the needed reference views from the task. Record approved identity references by role and actual file path.
-- Preserve the face generated within a scene when it matches the approved identity and lighting. Explain any requested replacement with an observed difference.
-- For a localized edit, record the crop coordinates and preserve position, scale, angle, expression, hair, lighting and surrounding detail unless the brief specifies a change.
-- Use masks suited to the actual boundaries, then match light, color and texture. Check the result against the approved identity and the surrounding image.
-- Check light direction and anatomy before mirroring or transforming a subject. Apply requested appearance changes consistently across approved variants.
+Inspect at 100% and full frame. Record measurements and tolerances where they help establish acceptance; use the brief and neighbouring pixels as their source.
 
-## 5. Integration of inserted or edited elements
+## 6. Visual QA before delivery
+- Inspect identities, boundaries, hair and fine detail, text, product proportions, alignment, shadows and reflections.
+- Check inserted elements against their surroundings and compare protected regions with the approved base.
+- Inspect extended or rebuilt surfaces for streaks, seams, halos and rectangular tonal changes.
+- Use crops and comparison sheets to locate defects, then open the full-resolution deliverables before acceptance. An agent report or a downscaled sheet alone is insufficient.
+- Reopen acceptance if a defect is found later. Delivery checks are in `references/visual-qa.md`.
 
-Compare every element with its native neighbours in the same light zone and with its own surroundings. Evaluate:
+## 7. Compositing and correction
+- Work at the required canvas size with reusable source layers, masks and uniform scaling. Adapt edge treatment to the source resolution and local light.
+- After rotating or moving an element, verify its independent alignment and rebuild affected shadows, reflections and exposed surfaces.
+- If an exact product's geometry differs from the generated version, replace the whole object with an approved source at uniform scale. Apply label artwork only to matching geometry; do not stretch it to conceal a shape mismatch.
+- Extend surfaces with matching perspective, gradient and texture. Preserve approved pixels outside the edit scope; avoid stretching source pixels into visible streaks.
+- Use adjustment layers where available. Match local light and colour while preserving approved identity, skin tones and brand colours.
+- When repeated visual corrections miss a measurable target, define a bounded correction from the approved baseline and mask. Record the rule, affected region and before/after measurements rather than applying a fixed correction percentage to every image.
+- Save new layered versions and required exports. If the user edits a working file, pause competing writes, preserve that state as the new approved base and update dependent tasks.
 
-1. **Light:** direction, gradient, highlights, falloff and reflected light.
-2. **Color:** white balance, saturation and black level on both lit and shadow sides.
-3. **Tone:** brightness and local contrast.
-4. **Texture:** sharpness, grain and depth of field at the element's distance.
-5. **Geometry and grounding:** perspective, camera height, scale, occlusion, contact shadows, cast shadows and reflections.
-
-Derive target values and tolerances from the approved image and nearby elements. Matching average color alone does not establish matching light structure. Inspect at 100% and at full-frame scale; revise visible seams or elements that appear pasted in.
-
-## 6. Independent visual QA
-
-- Review full-size crops of identity details, masks, object bases, shadows, text and joins, together with the full composition.
-- Check consistency across variants: identity, scale, perspective, colors and required content.
-- Verify text against approved source copy. Inspect for halos, doubled edges, unwanted casts and missing or extra elements.
-- Use comparison sheets for navigation, then open the original files for detailed checks. Record observed defects and corrective actions before accepting a deliverable.
-
-## 7. Compositing and export
-
-- Set the canvas from the required final dimensions. Preserve source layers and use editable masks or smart objects when supported.
-- Transform elements with their associated shadows and labels. Rebuild exposed areas after moving an object.
-- Use approved source artwork for text or product graphics that must remain exact. Match its perspective, surface shape and illumination.
-- For background changes, match horizon, camera, depth of field, color and edges to the subject.
-- Derive grading and sharpness from the brief and composition. Preserve required brand colors and natural skin appearance.
-- Save new versions of editable documents and preserve user-edited layer state. Export the agreed formats and verify their dimensions, appearance and filenames. Close only documents opened for the task.
-
-## 8. Agent and tool logistics
-
-- Assign one agent at a time to tools sharing a live application or browser session. Parallelize tasks with separate inputs, outputs and tool state.
-- Split large jobs by deliverable. Hand off selection files, coordinates, layer information and remaining issues rather than full conversation history.
-- Record actual run usage where available and adjust later task size to the agreed budget.
-- Collect editable sources, exports and review evidence in the agreed delivery directory. Include their exact paths and any unresolved issues in the handoff.
+## 8. Agent logistics and delivery
+- Assign one owner to each shared editor or browser profile. Keep independent outputs separate; follow the global and per-tool limits in PROJECT-SETUP.
+- Keep each run focused on one deliverable. Hand off approved sources, selections, coordinates, masks and task state through project files; record usage against the agreed budget.
+- Prefer correction packets with observed defects and exact targets over broad polishing requests.
+- Deliver the agreed layered files, previews and exports with verified dimensions and project naming. Use `references/visual-qa.md` for design-tool boards.
+- Verify every file target and use the host's supported link format. Open a file-manager window only when needed and after explaining the visible action.

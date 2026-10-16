@@ -15,7 +15,17 @@
 - Build/test/typecheck/preview commands:
 - Existing design requirements / CLAUDE.md / AGENTS.md:
 - Codex version/auth/worktree availability:
-- Browser/Playwright availability:
+- Browser and capture-tool availability:
+
+## Capability probe (1–2 minutes; re-probe failures)
+- PROJECT-SETUP path / version:
+- Executor/session / probe date / duration:
+
+| Service / tool | Account type / sign-in | Read / create / edit / capture result | Quota / reset | Approval requirement | Evidence / status | Mitigation / owner |
+|---|---|---|---|---|---|---|
+- Available Codex connectors/tools (actual inventory):
+- Planned per-tool caps / pending sign-ins / blocked dependencies:
+- Exact unverified operations / earliest resume time (or UNKNOWN):
 
 ## Reference inventory
 | ID | Path or URL | Actually viewed? | Observed attributes | Inferences, not facts |

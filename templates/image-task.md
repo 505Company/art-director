@@ -1,37 +1,54 @@
 # {TASK-ID} — {short title}
 
-**Owner:** {agent and approved tool}
-**Write ONLY:** {exact writable paths}
-**Exclusive tool access:** {application or browser session reserved for this task}
+**PROJECT-SETUP:** [path + version; agent/tool policy, generator/model/mode, resolution and budgets]\
+**Owner / tool:** [assigned executor and approved tool]\
+**Writable paths / protected files:** [exact scope]\
+**Exclusive tool/profile owner:** [owner or N/A]
 
 ## Purpose
-{User request, intended use and observed review findings with issue IDs}
+- Requested outcome and approved brief:
+- Observed issue IDs / intended improvement:
+- Scope and properties that must stay unchanged:
 
 ## Inputs
-| Role | Actual file path | Approved use and relevant constraints |
+| Role | Actual file path / version | Approval / rights / limitations |
 |---|---|---|
 
-## Tool rules
-- Confirm the named tool is available and its settings match the approved plan.
-- Use explicit document identifiers where supported. Preserve user-opened documents; save new versions and close only documents opened for this task.
-- Generator: {model, mode, resolution, aspect ratio, approved cost and maximum generations}.
-- Pause if the required settings or budget cannot be met.
+## Method and tools
+- Build method / stages / reason:
+- Tested edit capability / probe evidence:
+- Model/mode / dimensions / aspect / variant count / generation and credit limits:
+- Browser profile / download directory / sign-in and approval readiness:
+- Editor document / base version / exclusive owner:
+- Prompt read-back / exact downloaded-file verification:
+- Stop conditions / required user action:
 
-## Steps
-{Numbered actions with required inputs and expected outputs}
+## Work steps
+- Ordered changes and dependencies:
+- Protected source regions / masks / geometry and identity constraints:
+- User edits / approved-base handoff:
+- Visible app actions requiring advance notice:
 
-## Integration
-Compare edited or inserted elements with their native neighbours and own surroundings on light, color, tone, texture and geometry. Inspect at 100% and full-frame scale. Use target values and tolerances derived from the approved composition.
+## Creative pilot (when requested; otherwise N/A)
+- Idea and brief / message brief:
+- Claim evidence / source / date / limitations:
+- Geometry and approved-reference comparison:
+- Real-usage evidence or speculative-concept label:
+- Sample approval / selection file:
+- Generator comparison criteria and budget, if requested:
 
-## Candidates and selection
-{Candidate directory and comparison-sheet path}
+## Integration and review
+Compare edited elements with their surroundings for light, colour, tone, texture and geometry at 100% and full frame. Use `references/image-production.md` §5–7.
+- Measurable targets / tolerances / source of values:
+- Protected-region comparison:
+- Candidate IDs / comparison sheet / art-director selection record:
+- Defect evidence / correction and recheck:
 
-Generate and present candidates; the art director records the selection before dependent work. For compositing tasks, use the exact choices in the selection file.
+## Outputs and acceptance
+- New layered version / required exports / dimensions / naming:
+- QA crops / measurements / evidence paths:
+- Design-tool delivery scope / complete-image framing / node naming:
+- Verified file links using the host's supported format:
+- Acceptance criteria and review owner:
 
-## Outputs
-{Editable document paths, export paths and formats, review crops and measurements}
-
-## Acceptance
-{Observable AC-ID criteria and required evidence}
-
-Final message: `{TASK-ID}: IMPLEMENTED | PARTIAL | BLOCKED`, changed paths, actual checks and measurements, unresolved issues and handoff. Acceptance requires independent review.
+Final status: IMPLEMENTED / PARTIAL / BLOCKED, with actual paths, evidence and open issues. Acceptance belongs to the reviewer.

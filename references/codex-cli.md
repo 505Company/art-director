@@ -1,6 +1,6 @@
 # Codex CLI dispatch contract
 
-Use the installed CLI's version and help output to verify available commands and arguments before dispatch. The execution entry point is `codex exec`; adapt its flags to the active environment.
+Use the installed CLI version and help output to verify commands and arguments before dispatch. Adapt flags to the actual environment.
 
 ## Preflight
 
@@ -12,7 +12,7 @@ command -v git
 git status --porcelain
 ```
 
-Check configured authentication and security constraints on the actual machine. A CLI binary being present is NOT proof of active Codex authorization. Do not echo secrets into terminal/logs.
+Read current `PROJECT-SETUP.md`; honor its agent policy and global/per-tool caps. Run the capability probe in `references/context-audit.md` and consult `references/tooling-limits.md`. Check configured authentication and security constraints on the actual machine. A CLI binary being present is NOT proof of active Codex authorization. Do not echo secrets into terminal/logs.
 
 ## One worktree / one Codex invocation (Unix shell)
 
@@ -44,7 +44,7 @@ For CI optional `--json` streams JSONL events, but do not parse assumed undocume
 ## Fallback when Codex CLI unavailable
 1. Mark tasks `PLANNED/BLOCKED`; list missing binary/auth/permissions precisely.
 2. Output complete individual TASK.md files, DAG, accepted design contract, and the exact safe manual invocation.
-3. Report execution only when Codex actually ran. Switch implementation executors only when the user explicitly requests it.
+3. **Do not say Codex was run or automatically substitute another executor.** Only switch executor when user explicitly requests it.
 
 ## Shell portability
 Samples are POSIX shell; use the included Python dispatcher for cross-platform task launching. Windows Git/worktrees, executable name, subprocess environment and file paths must be verified on that machine. PowerShell callers may need to adjust redirection and path syntax; do not claim samples are universal.
@@ -52,18 +52,13 @@ Samples are POSIX shell; use the included Python dispatcher for cross-platform t
 ## Integration is Git, not an invented Codex operation
 After reviewer approval, integrator may use `git merge --no-ff codex/TASK-101` (ONLY if branch work is committed), or selective cherry-pick/patch using inspected diffs. `codex exec` often leaves uncommitted changes in its worktree; **commit intentionally and with consent**, after checking scope, tests and authorship. Merge sequencing and final QA are integrator responsibilities. No automatic merge is provided by this skill.
 
-## Version-dependent features (verify locally)
-- **Attach images** to a task with `-i <file>` (repeatable); put `-- -` before stdin when using `-i`.
-- **Non-git folders** need `--skip-git-repo-check`. **Network** for MCP/HTTP from the sandbox: `-c sandbox_workspace_write.network_access=true`.
-- **Built-in image generation:** verify the output location and dimensions in the active environment. Copy approved outputs into the project and derive resizing or upscaling from the required final size.
-- **MCP tools need approval** in `exec` mode, which defaults to "never" → mutating calls are rejected ("approval policy is
-  never"). Per-server fix: in `~/.codex/config.toml` under `[mcp_servers.<name>]` add `default_tools_approval_mode = "approve"`
-  (only with the user's explicit consent; back up the config first). Register a server with
-  `codex mcp add <name> --env K=V -- <command> <args>`; verify with `codex mcp list` and a tiny probe run (ping + create/close).
-- `--approve-for-me` routes approvals to automatic review but **cannot be combined with `--sandbox`**.
-- Disable a server for one run: `-c 'mcp_servers.<name>.enabled=false'` — but NOT for plugin-provided servers (e.g.
-  `cua_repl`): overriding them breaks config loading ("invalid transport").
-- Computer use (desktop/browser control) is available to agents through the `cua_repl` MCP when the Codex app is installed;
-  probe with a read-only screenshot request first.
-- The sandbox blocks AppleEvents (`osascript` to apps) → drive desktop apps through their MCP servers, not scripts.
-- Cost/size: the stderr log ends with `tokens used` + a number — record it per run.
+## Version-dependent capabilities
+- Verify image attachment, non-Git execution and network configuration against the installed CLI before using them. Record required permissions in PROJECT-SETUP.
+- For generated images, verify actual output paths, dimensions and file types; copy approved outputs into the project. Derive resizing from the required final size.
+- Noninteractive runs cannot obtain new approvals. Probe required operations separately; use an authorized interactive session or a permitted create-only flow where appropriate. Do not bypass approval policy or silently change global settings.
+- Inventory tools in the actual executor session; a tool available in the host UI may be absent from the CLI. Probe approved integrations read-only before dependent work.
+- Configure or register integrations only within the authorized scope. Use each tool's supported interface for desktop/browser work and serialize shared sessions.
+- Record usage from actual logs when available. Verify dependency access, local-server access and test execution in each worktree; treat blocked checks as unverified.
+
+## Runner and connector budgets
+The included runner accepts 1–10 workers and has no per-tool scheduler. Use `--workers` within its limit and the recorded user maximum; split shared-tool waves manually. Design-tool and task-tracker quotas, browser profile/sign-in/capture limits and web-generator downloads are detailed in `references/tooling-limits.md`. Report exact unverified work and verified resume time (UNKNOWN if not known) when a quota or approval blocks execution.

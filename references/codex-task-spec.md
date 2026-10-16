@@ -1,9 +1,9 @@
 # Codex TASK specification — exhaustive by design
 
-**The Codex agent enters cold, with no prior conversation context. Every TASK is a complete work order.** Read the task template and fail preflight if any required slot is blank (N/A + reason is okay). Copy exact approved values from contracts; do not rely on unspecified implicit taste.
+**The Codex agent enters cold, without the orchestrator's conversation context. Every TASK is a complete work order.** Read the task template and fail preflight if any required slot is blank (N/A + reason is okay). Copy exact approved values from contracts; do not rely on unspecified implicit taste.
 
 ## Mandatory fields (19)
-1. `TASK-ID`, priority, phase, owner, status and contract `BASE_SHA`.
+1. `TASK-ID`, priority, phase, owner, status and contract `BASE_SHA`; current `PROJECT-SETUP.md` path/version and applicable agent policy, tool caps, budget and client rules.
 2. User-visible objective and rationale; precise user flow to improve.
 3. Scope/non-goals; explicit list of what must not change.
 4. Input/evidence: URLs, assets and paths that truly exist (reference observations vs approximations); links to contract version.

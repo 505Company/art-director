@@ -3,7 +3,8 @@
 **Affects:** TASK-[NNN] / branch/SHA\
 **Severity:** P0/P1/P2/P3\
 **Owner:** [single Codex worktree owner]\
-**Baseline:** [approved contract version]
+**Baseline:** [approved contract version]\
+**PROJECT-SETUP:** [path + version; applicable policy/limits]
 
 1. **Observed failure:** route, viewport/state, screenshot path and actual value/behavior.
 2. **Expected:** exact AC-ID and contract target, measurement/tolerance or specific interaction outcome.

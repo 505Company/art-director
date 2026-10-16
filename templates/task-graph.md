@@ -7,7 +7,7 @@
 - Sequential integration tasks:
 - Final verification tasks:
 
-Build the graph from these verified dependencies. Include only the current project's tasks.
+Build the graph from the current project's verified dependencies.
 
 | Task ID | Depends on INTEGRATED | Exclusive writable paths | Estimated effort/risk | Planned wave |
 |---|---|---|---|---|
@@ -16,7 +16,10 @@ Build the graph from these verified dependencies. Include only the current proje
 - Tasks in same wave are independent because:
 - Paths that might overlap and designated sole owner:
 - Why sequential tasks are sequential:
-- Default worker count and cap:
+- PROJECT-SETUP path/version and allowed agent policy:
+- User global max / chosen worker count / local runner limit:
+- Per-tool caps, exclusive tool owners and quota budgets:
+- Capability probe evidence / pending verification:
 - Data-transfer approval status:
 - Stop conditions / fallback:
 

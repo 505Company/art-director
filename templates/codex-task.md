@@ -6,7 +6,8 @@
 **Wave:** [number]\
 **BASE_SHA:** [actual Git SHA]\
 **Design contract:** [actual path + version]\
-**Architecture contract:** [actual path + version]
+**Architecture contract:** [actual path + version]\
+**PROJECT-SETUP:** [actual path + version; applicable agent/tool/budget/client rules]
 
 ## 1. User outcome / intent
 - Why this change exists:

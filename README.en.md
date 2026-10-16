@@ -15,8 +15,11 @@ It works with websites, app interfaces, and images.
 - Coordinate independent tasks across agents.
 - Review appearance, responsive layouts, interactions, and accessibility.
 - Plan image generation and compositing, compare variants, and check details.
+- Record project settings, available tools, and limits for later stages.
+- Gather research with sources and check conclusions before preparing copy.
+- Prepare outreach drafts, meeting briefs, and a small experiment plan when requested.
 
-Running tasks through agents requires an installed and configured Codex CLI. Image generators, Photoshop, and other tools are connected separately when needed for a task.
+Running tasks through agents requires an installed and configured Codex CLI. Image generators and editors are connected separately when needed for a task.
 
 The repository contains instructions, blank templates, helper scripts, and tests.
 
@@ -40,10 +43,12 @@ The installer preserves existing files and refuses to overwrite an installed ski
 
 In Claude Code, run `/art-director` and describe your task. Available modes:
 
+- `setup` — configure the project.
 - `brief` — understand the task and propose a direction.
 - `plan` — prepare implementation tasks.
 - `execute` — run the tasks.
 - `image` — work on images.
+- `research-outreach` — gather research and prepare outreach drafts.
 - `review` — check the result.
 
 The dispatcher shows a plan first. Execution requires the explicit flags `--execute --approve-sharing-code`; it does not automatically publish or merge changes. See the [dispatch guide](references/orchestration.md) for details.
